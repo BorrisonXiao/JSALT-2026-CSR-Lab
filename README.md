@@ -1,6 +1,6 @@
 # JSALT 2026 — Continuous Speech Recognition Lab
 
-A hands-on ASR lab built for the [JSALT 2026](https://www.clsp.jhu.edu/workshops/26-workshop/) summer workshop.
+A hands-on ASR lab built for the [JSALT 2026](https://www.clsp.jhu.edu/the-12th-frederick-jelinek-memorial-summer-workshop-on-speech-and-language-technology/) summer workshop.
 
 Students train a character-level and BPE-level CTC ASR model using a pretrained [HuBERT](https://arxiv.org/abs/2106.07447) encoder and the mini-LibriSpeech dataset.
 
