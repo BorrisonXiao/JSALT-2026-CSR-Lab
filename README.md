@@ -6,20 +6,19 @@ Students train a character-level and BPE-level CTC ASR model using a pretrained 
 
 ## What you will implement
 
-| Exercise | Description |
+The core exercises focus on the model and CTC machinery. Each has a hidden **show solution** cell in Colab.
+
+| Exercise | What to implement |
 |---|---|
-| `SpeechEncoder.forward` | Pass raw waveforms through HuBERT + linear projection; handle encoder freezing during warmup |
-| `CTCLoss.forward` | Wrap PyTorch's `F.ctc_loss` with the correct log-softmax + transpose |
-| `ctc_greedy_decode` | Collapse blanks and repeated tokens from CTC frame predictions |
-| `decode_data` | Run the full dev-set through the model and collect hypotheses / references |
-| Training loop | Warmup LR schedule, mixed-precision training, per-epoch validation and WER/CER reporting |
-| SentencePiece training | Train and load a BPE vocabulary on LibriSpeech transcripts |
-| `BPETokenizer` | Drop-in tokenizer wrapping SentencePiece with the same interface as `CharacterTokenizer` |
-| BPE training | Re-run the full training pipeline with the BPE tokenizer |
+| `SpeechEncoder.forward` | Freeze/unfreeze the encoder, run HuBERT, project with a linear layer |
+| `CTCLoss.forward` | Log-softmax + transpose + `F.ctc_loss` |
+| `ctc_greedy_decode` | Blank removal and consecutive-repeat collapsing |
+| `decode_data` | Full dev-set decoding loop |
+| Training loop | Mixed-precision training with warmup LR schedule, per-epoch eval |
 
-Hidden `show solution` cells are provided for each exercise (click to expand in Colab).
+The BPE section gives `BPETokenizer` mostly pre-filled — only `encode_text` and `inverse` are left as short fill-ins (no show solution). The SentencePiece training step and the BPE training pipeline are provided in full.
 
-The `CharacterTokenizer` class is fully implemented and serves as a reference.
+The `CharacterTokenizer` class is fully implemented and serves as a reference for all tokenizer methods.
 
 ## Setup
 
